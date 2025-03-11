@@ -29,10 +29,10 @@ An interactive Power BI dashboard used to report and explore sales trends can be
 
 The analysis uses four publicly available datasets:
 
-*   **Table 1: Washington_Election_Results_2024:**  2024 Washington State county-level election results. Contains data on votes for each party (Democrat, Republican) by county, including the total votes and percentage of total votes. [Data Source](https://results.vote.wa.gov/results/20241105/export.html)
-*   **Table 2: Washington_Electric_Vehicle_Population_Data:**  Information on electric vehicles registered in Washington State. Includes details on individual EVs, such as brand, model, model year, electric vehicle type, and county. [Data Source](https://catalog.data.gov/dataset/electric-vehicle-population-data)
-*   **Table 3: Washington_Median_Income_by_County:** Median household income by county in Washington State. [Data Source](https://hdpulse.nimhd.nih.gov/data-portal/social/table?socialtopic=030&socialtopic_options=social_6&demo=00011&demo_options=income_3&race=00&race_options=race_7&sex=0&sex_options=sexboth_1&age=001&age_options=ageall_1&statefips=53&statefips_options=area_states)
-*   **Table 4: Washington_Population_2024:**  2024 population estimates for Washington State counties. [Data Source](https://ofm.wa.gov/washington-data-research/population-demographics/population-estimates/april-1-official-population-estimates)
+*   **Washington_Election_Results_2024:**  2024 Washington State county-level election results. Contains data on votes for each party (Democrat, Republican) by county, including the total votes and percentage of total votes. [Data Source](https://results.vote.wa.gov/results/20241105/export.html)
+*   **Washington_Electric_Vehicle_Population_Data:**  Information on electric vehicles registered in Washington State. Includes details on individual EVs, such as brand, model, model year, electric vehicle type, and county. [Data Source](https://catalog.data.gov/dataset/electric-vehicle-population-data)
+*   **Washington_Median_Income_by_County:** Median household income by county in Washington State. [Data Source](https://hdpulse.nimhd.nih.gov/data-portal/social/table?socialtopic=030&socialtopic_options=social_6&demo=00011&demo_options=income_3&race=00&race_options=race_7&sex=0&sex_options=sexboth_1&age=001&age_options=ageall_1&statefips=53&statefips_options=area_states)
+*   **Washington_Population_2024:**  2024 population estimates for Washington State counties. [Data Source](https://ofm.wa.gov/washington-data-research/population-demographics/population-estimates/april-1-official-population-estimates)
 
 ![entity relationship diagram](https://github.com/user-attachments/assets/5b679540-d22f-4646-864d-5825243252fa)
 
@@ -42,26 +42,36 @@ The analysis uses four publicly available datasets:
 
 This analysis reveals significant variations in EV adoption rates across Washington State counties, with a noticeable correlation between EV adoption, median income, and political leaning.  Higher-income counties tend to have higher EV adoption rates.  There's also a relationship between political leaning and EV adoption, with Democratic-leaning counties generally showing higher adoption rates, even when considering income.  Voter turnout also shows some positive correlation with EV adoption, but there is almost no correlation between voter turnout and income.
 
-![overview1](https://github.com/user-attachments/assets/45044a15-e76b-4029-bbd8-5d719d583b3a)
+![overview1](https://github.com/user-attachments/assets/67382bc3-ec7d-4671-b905-bf49009d8bdc)
 
-![overview2](https://github.com/user-attachments/assets/bc132cb5-a963-4ae8-9052-7eba084a3551)
+![overview2](https://github.com/user-attachments/assets/aa970796-050b-4f57-bb30-324436b98873)
 
 ## Insights Deep Dive
 
-### Category 1: Overall EV Adoption Trends
+### Overall EV Adoption Trends
 
-*   **Main insight 1:** EV adoption rates vary significantly across Washington State counties. King County has the highest number of EVs, while many rural counties have significantly lower adoption rates.
-*   **Main insight 2:** The statewide average EV adoption rate is [Insert Value from your Card visual] EVs per 1000 residents.
-*   **Main insight 3:** Tesla is the most popular EV make in Washington State, followed by [Insert Top Makes from your Bar Chart].
-*   **Main insight 4:**  BEVs (Battery Electric Vehicles) are more prevalent than PHEVs (Plug-in Hybrid Electric Vehicles) in Washington.
+*   **EV adoption rates vary significantly across Washington State counties.** King County has the highest number of EVs by far, with more than 4 times more EVs than the second place, while many rural counties have significantly lower adoption rates.
 
-[Visualization - Include a screenshot of your treemap or the EV adoption rate map.]
+![ev adoption map](https://github.com/user-attachments/assets/cbd58e11-a09e-4230-9b95-3d0f8c07672c)
 
-### Category 2: Correlation between EV Adoption and Political Leaning
+*   **All 5 of the top 5 counties with the most electric vehicles are Democrat-leaning.** The statewide average EV adoption rate is 28.84 EVs per 1000 residents.
 
-*   **Main insight 1:**  There is a positive correlation between the percentage of Democratic votes in a county and the EV adoption rate.
-*   **Main insight 2:**  Conversely, there is a negative correlation (or a weaker positive correlation) between the percentage of Republican votes and EV adoption.
-*   **Main insight 3:**  Even when controlling for income (as seen in the scatter plots), the relationship between political leaning and EV adoption persists. This suggests that factors beyond income, such as environmental attitudes, likely play a role.
+![top 5 counties](https://github.com/user-attachments/assets/b8eeb565-f9b3-492b-bd1e-c551aa59f648)
+
+*   **Tesla is the most popular EV make in Washington State**, followed by Chevrolet, Nissan, Ford, and Kia.
+
+![top 5 brands](https://github.com/user-attachments/assets/6cf926c7-45ff-49a9-9bff-0b3fee769500)
+
+### Correlation between EV Adoption and Political Leaning
+
+*   **A positive correlation exists between the percentage of Democrat votes in a county and the EV adoption rate.** Conversely, there is a negative correlation between the percentage of Republican votes and EV adoption.
+
+
+
+*   **Main insight 3:**  Even when controlling for income (as seen in the scatter plots), the relationship between political leaning and EV adoption persists. On the EV Adoption vs Median Salary by County scatter plot, we observe a tendency for Democratic-leaning counties (blue points) to cluster above the overall trendline, while Republican-leaning counties (red points) tend to cluster below it. This suggests a potential effect of political leaning on EV adoption that is not solely explained by income differences, and that factors beyond income, such as environmental attitudes, likely play a role.
+
+
+
 *  **Main insight 4:** This correlation is stronger in counties with higher median income.
 
 [Visualization - Include a screenshot of your scatter plot showing EV adoption vs. Democrat/Republican vote percentage, with points colored by winning party.]
