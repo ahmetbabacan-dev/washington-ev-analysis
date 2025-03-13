@@ -62,37 +62,29 @@ This analysis reveals significant variations in EV adoption rates across Washing
 
 ![top 5 brands](https://github.com/user-attachments/assets/6cf926c7-45ff-49a9-9bff-0b3fee769500)
 
+### Correlation between EV Adoption and Income
+
+*   **A strong positive correlation exists between median household income and EV adoption rates.** Higher-income counties tend to have significantly more EVs per 1000 residents. The R-squared value for this correlation is 0.66, indicating a strong positive relationship".
+
+![ev vs median salary2](https://github.com/user-attachments/assets/a16da4e9-e3b8-4851-b233-5580bbeb5c79)
+
 ### Correlation between EV Adoption and Political Leaning
 
 *   **A positive correlation exists between the percentage of Democrat votes in a county and the EV adoption rate.** Conversely, there is a negative correlation between the percentage of Republican votes and EV adoption.
 
+![ev vs democrat](https://github.com/user-attachments/assets/e5f8b4eb-f522-40af-a035-19123e87b5d8)
 
+*   **Even when controlling for income (as seen in the scatter plots), the relationship between political leaning and EV adoption persists.** On the EV Adoption vs Median Salary by County scatter plot, we observe a tendency for Democratic-leaning counties (blue points) to cluster above the overall trendline. In contrast, Republican-leaning counties (red points) tend to cluster below it (highlighted with a green ellipse). This suggests a potential effect of political leaning on EV adoption that is not solely explained by income differences and that factors beyond income, such as environmental attitudes, likely play a role.
 
-*   **Main insight 3:**  Even when controlling for income (as seen in the scatter plots), the relationship between political leaning and EV adoption persists. On the EV Adoption vs Median Salary by County scatter plot, we observe a tendency for Democratic-leaning counties (blue points) to cluster above the overall trendline, while Republican-leaning counties (red points) tend to cluster below it. This suggests a potential effect of political leaning on EV adoption that is not solely explained by income differences, and that factors beyond income, such as environmental attitudes, likely play a role.
+![ev vs median salary](https://github.com/user-attachments/assets/61431079-74d2-43b6-91d8-01f7e7548531)
 
+### Which is the better predictor: Income or Political Leaning?
 
+*   **While both income and political leaning have strong correlations with EV adoption, political leaning is a better predictor of EV adoption on county level than income alone.** This is visible when we look at the correlation coefficients, which is 0.88 for EV adoption and Democrat vote percentage, and 0.66 for EV adoption and income.
 
-*  **Main insight 4:** This correlation is stronger in counties with higher median income.
+*    **The percentage of Republican votes have a moderately negative correlation with income, meaning Republican-leaning counties tend to earn less.** This may explain the lower EV adoption in Republican-leaning counties, but the correlation between EV adoption and Democrat vote percentage is stronger than the correlation between Income and Republican vote percentage (with correlation coefficients of 0.88 vs -0.57, respectively), meaning as Democrat votes go up, EV adoption goes up along with it more than the median household income.
 
-[Visualization - Include a screenshot of your scatter plot showing EV adoption vs. Democrat/Republican vote percentage, with points colored by winning party.]
-
-### Category 3: Correlation between EV Adoption and Income
-
-*   **Main insight 1:** There is a strong positive correlation between median household income and EV adoption rates.  Higher-income counties tend to have significantly more EVs per 1000 residents.
-*   **Main insight 2:**  The R-squared value for this correlation is [Insert Value from your R-Squared measure], indicating [Explain the strength of the correlation based on the R-squared value - e.g., "a moderately strong positive relationship"].
-*   **Main insight 3:**  This relationship holds true even when considering political leaning.
-*   **Main insight 4**: [Insert Value from your Card visual] is the state's median salary.
-
-[Visualization - Include a screenshot of your scatter plot showing EVs per 1000 vs. Median Salary, with points colored by winning party.]
-
-### Category 4: Correlation between Voter Turnout and other factors
-
-*    **Main Insight 1:** Voter turnout is correlated with the other variables.
-*    **Main Insight 2:** Voter turnout has a slight positive correlation with median income.
-*    **Main Insight 3:** Counties with a high voter turnout slightly correlate with the EV adoption rate.
-*   **Main insight 4:** [Insert Value from your Card visual] is the state's voter turnout.
-
-[Visualization: Scatter plot of Voter Turnout vs. Median Salary and scatter plot of EV Adoption vs Voter Turnout]
+![salary vs republican](https://github.com/user-attachments/assets/f9a76fe5-8a02-4e87-9198-f2c75cb44a90)
 
 ## Recommendations
 
