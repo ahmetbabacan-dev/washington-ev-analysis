@@ -9,8 +9,7 @@ As a data analyst, I've undertaken this project to analyze the relationship betw
 *   **Industry:**  Environmental Advocacy / Non-Profit
 *   **Key Business Metrics:**
     *   **EV Adoption Rate (per 1000 residents):**  A key indicator of the organization's success in promoting sustainable transportation.
-    *   **Voter Turnout:**  A measure of civic engagement, a core organizational goal.
-    *  **Number of policy changes related to EV adoption:** Shows how effective the organization is to reach its goals.
+    *   **Number of policy changes related to EV adoption:** This shows how effective the organization is in reaching its goals.
 
 Insights and recommendations are provided on the following key areas:
 
@@ -80,9 +79,9 @@ This analysis reveals significant variations in EV adoption rates across Washing
 
 ### Which is the better predictor: Income or Political Leaning?
 
-*   **While both income and political leaning have strong correlations with EV adoption, political leaning is a better predictor of EV adoption on county level than income alone.** This is visible when we look at the correlation coefficients, which is 0.88 for EV adoption and Democrat vote percentage, and 0.66 for EV adoption and income.
+*   **While both income and political leaning have strong correlations with EV adoption, political leaning is a better predictor of EV adoption on the county level than income alone.** This is visible when we look at the correlation coefficients, which is 0.88 for EV adoption and Democrat vote percentage, and 0.66 for EV adoption and income.
 
-*    **The percentage of Republican votes have a moderately negative correlation with income, meaning Republican-leaning counties tend to earn less.** This may explain the lower EV adoption in Republican-leaning counties, but the correlation between EV adoption and Democrat vote percentage is stronger than the correlation between Income and Republican vote percentage (with correlation coefficients of 0.88 vs -0.57, respectively), meaning as Democrat votes go up, EV adoption goes up along with it more than the median household income.
+*    **The percentage of Republican votes has a moderately negative correlation with income, meaning Republican-leaning counties tend to earn less.** This may explain the lower EV adoption in Republican-leaning counties, but the correlation between EV adoption and Democrat vote percentage is stronger than the correlation between Income and Republican vote percentage (with correlation coefficients of 0.88 vs -0.57, respectively), meaning as Democrat votes go up, EV adoption goes up along with it more than the median household income.
 
 ![salary vs republican](https://github.com/user-attachments/assets/f9a76fe5-8a02-4e87-9198-f2c75cb44a90)
 
@@ -94,7 +93,6 @@ Based on the insights and findings above, we would recommend the [stakeholder te
 *   **Policy Advocacy:**  Advocate for policies that make EVs more affordable and accessible, such as tax credits, rebates, and expanded charging infrastructure, particularly in underserved areas.
 *   **Partnerships:**  Collaborate with local organizations and community leaders in lower-adoption counties to build trust and promote EV awareness.
 *   **Messaging Strategy:**  Highlight the economic benefits of EVs (e.g., lower fuel and maintenance costs) in addition to their environmental benefits, particularly when communicating with audiences in lower-income or Republican-leaning areas.
-*   **Voter Engagement:** Continue efforts to increase voter turnout, as higher civic engagement may be linked to greater environmental awareness and support for sustainable policies.
 
 ## Assumptions and Caveats
 
@@ -103,5 +101,5 @@ Throughout the analysis, multiple assumptions were made to manage challenges wit
 *   **Data Accuracy:** The analysis relies on the accuracy and completeness of the publicly available datasets. Any errors or omissions in the source data would impact the results.
 *   **Correlation vs. Causation:**  The analysis identifies correlations, but these do not necessarily imply causation. Other factors not included in the data could be influencing the observed relationships.
 *   **Simplified Party Affiliation:**  The analysis simplifies political leaning into "Democrat" and "Republican," which doesn't capture the full spectrum of political views.
-* **Static Data**: Since we only have 2024 election data, it can't be used to study trends, and only one year is considered.
-* **EV Data Limitation:** We have considered any EV in the EV dataset, even though some have 0 for their electric range.
+*   **Static Data**: Since we only have 2024 election data, it can't be used to study trends, and only one year is considered.
+*   **EV Data Limitation:** We have considered any EV in the EV dataset, even though some have 0 for their electric range.
