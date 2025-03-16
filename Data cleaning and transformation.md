@@ -1,30 +1,47 @@
 # Project 1 Steps
 
-## Step 1: Data Cleaning and Preprocessing
+## Step 1: Data Cleaning and Preprocessing (Microsoft Excel)
 
 ### Washington_Election_Results.csv (Original file name: 20241105_allcounties)
 
-Here are the first couple of rows of the file before any cleaning:
+  Here are the first couple of rows of the file before any cleaning:
 
-![elections-before-csv](https://github.com/user-attachments/assets/de353dc6-d0f2-4267-8610-15af367bc131)
+  ![elections-before-csv](https://github.com/user-attachments/assets/de353dc6-d0f2-4267-8610-15af367bc131)
 
-*  1. The dataset contains all candidates from all parties for both state and federal-level elections, and since I only need the presidential candidates, I selected Data > Filter and selected all of the options other than United States President/Vice President in the Race column to get every row that I don’t need. Then, I selected the second row and pressed Ctrl + Shift + Down Arrow to select all rows and used Home > Delete > Delete Sheet Rows to delete the rows.
-2. I selected the Race, Candidate, and JurisdictionName columns and used Home > Delete > Delete Sheet Columns to delete the columns.
-3. There are single space values in the Party column, which corresponded to the write-in candidates, but since we deleted the Candidate column, I replaced all of these single space values with “Write-in” using Ctrl + F > Replace. I made sure to select the “Match entire cell contents” option to avoid replacing other spaces in other cells.
-4. To bring the PercentageOfTotalVotes values between 0 and 1 to enable easier calculations and analysis, I used the =D2/100 formula in cell F2 and applied it to all rows. Then, I copied the entire F column and pasted the values only to get rid of the formulas. I deleted the original column and named the new column PercentageOfTotalVotes.
-5. *The “Party” and “Nominees” words in the Party column are unnecessary and take up space in the data model, so to remove them, I first created 2 more columns using Home > Insert > Insert Sheet Columns since the column will be split into 3 columns. Then I selected the Party column and used Data > Text to Columns using the Space delimiter to split the column into 3 columns. I deleted the last 2 columns with the “Party” and “Nominees” cell values.*
-6. *Since the only remaining distinct values in the Party column are “Democratic” and “Republican”, we need to replace “Democratic” values with “Democrat”. To accomplish this, I created an empty column using Home > Insert > Insert Sheet Column and used `=IF(B2="Democratic", SUBSTITUTE(B2, "Democratic", "Democrat"), B2)` function. Then, I copied the entire C column and pasted the values only to get rid of the formulas. I deleted the original column and named the new column PercentageOfTotalVotes.*
+* The dataset contains all candidates from all parties for both state and federal-level elections, and since I only need the presidential candidates, I selected Data > Filter and selected all of the options other than United States President/Vice President in the Race column to get every row that I don’t need. Then, I selected the second row and pressed Ctrl + Shift + Down Arrow to select all rows and used Home > Delete > Delete Sheet Rows to delete the rows.
+* I selected the Race, Candidate, and JurisdictionName columns and used Home > Delete > Delete Sheet Columns to delete the columns.
+* There are single space values in the Party column, which corresponded to the write-in candidates, but since we deleted the Candidate column, I replaced all of these single space values with “Write-in” using Ctrl + F > Replace. I made sure to select the “Match entire cell contents” option to avoid replacing other spaces in other cells.
+* To bring the PercentageOfTotalVotes values between 0 and 1 to enable easier calculations and analysis, I applied the =D2/100 formula in cell F2 to all rows. Then, I copied the entire F column and pasted the values only to eliminate the formulas. I deleted the original column and named the new column PercentageOfTotalVotes.
 
-ofm_april1_population_final
+  Here are the first couple of rows of the file after cleaning:
 
-1. Since I only need the county-level population data and not anything more granular, I filtered the Jurisdiction column using a Custom Filter with “ends with ‘County’” and “does not contain ‘incorporated’” to leave only the 39 county rows.
-2. Then I copied the County and 2024 Population Estimate columns and pasted the values into another sheet, and formatted it as a table.
-3. Finally, I deleted the original sheets since I don’t need the information in them.
+  ![elections-after-csv](https://github.com/user-attachments/assets/1ffd38bf-6951-4715-a2c7-33fed59c0b63)
 
-Electric_Vehicle_Population_Data
+### Washington_Population_2024.csv (Original file name: ofm_april1_population_final.xlsx)
+
+  Here are the first couple of rows of the file before any cleaning:
+
+  ![population-before](https://github.com/user-attachments/assets/9c1b006b-9d97-4b59-9bb5-ccc8042ecadb)
+
+* Since I only need the county-level population data and not anything more granular, I filtered the Jurisdiction column using a Custom Filter with “ends with ‘County’” and “does not contain ‘incorporated’” to leave only the 39 county rows.
+
+  ![population-filter](https://github.com/user-attachments/assets/297cbe8f-67a8-4bb2-ac9d-ecd6c9f03240)
+
+* Then I copied the County and 2024 Population Estimate columns and pasted the values into another sheet and formatted it as a table.
+* Finally, I deleted the original sheets since I don’t need the information in them.
+
+  Here are the first couple of rows of the file after cleaning:
+
+  ![population-after](https://github.com/user-attachments/assets/59cc68af-35df-4b4c-8fa8-d01180c1677c)
+
+### Washington_Electric_Vehicle_Population_Data (Original file name: Electric_Vehicle_Population_Data)
+
+  Here are the first couple of rows of the file before any cleaning:
+
+  ![ev-before](https://github.com/user-attachments/assets/156fccdb-0c0e-43f8-9f2a-3e479e74d20d)
 
 1. I selected VIN (1-10), Postal Code, Legislative District, DOL Vehicle ID, Vehicle Location, Electric Utility, 2020 Census Tract
-2. Base MSRP column could’ve been useful but since approximately %98.6 of the values (228,926 out of 232230) are 0, I deleted the column.
+2. Base MSRP column could’ve been useful, but since approximately 98.6% of the values (228,926 out of 232230) are 0, I deleted the column.
 3. Since the analysis is only about Washington State, I selected Data > Filter and selected all of the options other than WA in the State column to get every row that I don’t need. Then, I selected the second row and pressed Ctrl + Shift + Down Arrow to select all rows and used Home > Delete > Delete Sheet Rows to delete the rows.
 
 US_County_Median_Income
