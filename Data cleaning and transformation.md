@@ -40,15 +40,27 @@
 
   ![ev-before](https://github.com/user-attachments/assets/156fccdb-0c0e-43f8-9f2a-3e479e74d20d)
 
-1. I selected VIN (1-10), Postal Code, Legislative District, DOL Vehicle ID, Vehicle Location, Electric Utility, 2020 Census Tract
+1. I deleted the VIN (1-10), Postal Code, Legislative District, DOL Vehicle ID, Vehicle Location, Electric Utility, 2020 Census Tract, City, Electric Range, and Clean Alternative Fuel Vehicle (CAFV) Eligibility columns.
 2. Base MSRP column could’ve been useful, but since approximately 98.6% of the values (228,926 out of 232230) are 0, I deleted the column.
-3. Since the analysis is only about Washington State, I selected Data > Filter and selected all of the options other than WA in the State column to get every row that I don’t need. Then, I selected the second row and pressed Ctrl + Shift + Down Arrow to select all rows and used Home > Delete > Delete Sheet Rows to delete the rows.
+3. Since the analysis is only about Washington State, I selected Data > Filter and selected all of the options other than WA in the State column to get every row that I don’t need. Then, I selected the second row and pressed Ctrl + Shift + Down Arrow to select all rows and used Home > Delete > Delete Sheet Rows to delete the rows. Then, I deleted the State column since all the remaining values are WA.
 
-US_County_Median_Income
+  Here are the first couple of rows of the file after cleaning:
+
+  ![ev-after](https://github.com/user-attachments/assets/fa7f39bc-462e-48f2-a402-90f43c58555d)
+
+### US_County_Median_Income
+
+  Here are the first couple of rows of the file before any cleaning:
+
+  ![income-before](https://github.com/user-attachments/assets/3f34e0b0-64fd-4f09-9e8a-bd41cc4cf30b)
 
 1. I deleted the information rows on the top and bottom of the file to leave only the table.
 2. I deleted the United States and Washington rows since I only need the county-level data.
 3. I deleted the FIPS column since I don’t need the counties' FIPS codes.
+
+  Here are the first couple of rows of the file after cleaning:
+
+  ![income-after](https://github.com/user-attachments/assets/dfffbb94-4ca9-4357-879c-726db26acf1f)
 
 Data Transformation
 
