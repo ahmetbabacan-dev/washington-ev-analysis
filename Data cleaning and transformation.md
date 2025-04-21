@@ -40,7 +40,7 @@
 
   ![ev-before](https://github.com/user-attachments/assets/156fccdb-0c0e-43f8-9f2a-3e479e74d20d)
 
-1. I deleted the VIN (1-10), Postal Code, Legislative District, DOL Vehicle ID, Vehicle Location, Electric Utility, 2020 Census Tract, City, Electric Range, and Clean Alternative Fuel Vehicle (CAFV) Eligibility columns.
+1. I deleted the VIN (1-10), City, Postal Code, Legislative District, DOL Vehicle ID, Vehicle Location, Electric Utility, 2020 Census Tract, City, Electric Range, and Clean Alternative Fuel Vehicle (CAFV) Eligibility columns.
 2. Base MSRP column could’ve been useful, but since approximately 98.6% of the values (228,926 out of 232230) are 0, I deleted the column.
 3. Since the analysis is only about Washington State, I selected Data > Filter and selected all of the options other than WA in the State column to get every row that I don’t need. Then, I selected the second row and pressed Ctrl + Shift + Down Arrow to select all rows and used Home > Delete > Delete Sheet Rows to delete the rows. Then, I deleted the State column since all the remaining values are WA.
 
@@ -62,7 +62,7 @@
 
   ![income-after](https://github.com/user-attachments/assets/dfffbb94-4ca9-4357-879c-726db26acf1f)
 
-Data Transformation
+## Step 2: Data Transformation
 
 1. I loaded all CSV files into Power BI using Home > Get Data > Text/CSV and selected Transform Data.
 2. Renamed the queries to reflect their content better.
@@ -71,4 +71,10 @@ Data Transformation
 5. I renamed the “Value (Dollars)” column to “Median Salary”.
 6. I wanted to group every other Party column value other than "Democratic Party Nominees" and "Republican Party Nominees" as "Other", with their Votes and PercentageOfTotalVotes values also summed/grouped. To achieve this, I used Add Column > Custom Column and added a Custom Column to classify parties into "Democrat", "Republican", and "Other" with the following formula: `if [Party] = "Democratic Party Nominees" then "Democrat"
 else if [Party] = "Republican Party Nominees" then "Republican"
-else "Other"` . Then, I selected the County and Party Grouped columns and used Home > Group By. I entered the following settings to achieve the desired output.
+else "Other"` . Then, I selected the County and Party Grouped columns and used Home > Group By. I entered the following settings to achieve the desired output:
+
+![party group by](https://github.com/user-attachments/assets/2ed81727-c746-40ed-ac23-afaaa89bc13d)
+
+After this, I changed the Party Grouped column's type to text, Total Votes to Whole Number, and renamed Party Grouped to Party.
+
+7. To discern how much of the population is registered voters, I downloaded the Washington Secretary of State's Voter Demographics Tables from here
