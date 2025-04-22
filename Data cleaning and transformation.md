@@ -67,7 +67,7 @@
 1. I loaded all CSV files into Power BI using Home > Get Data > Text/CSV and selected Transform Data.
 2. Renamed the queries to reflect their content better.
 3. To remove the “County” words at the end of the cells in the County column of the Washington_Median_Income_by_County query, I selected the County column, used Split Column > By Delimiter, and chose Space as the delimiter and right-most delimiter. Then I deleted the column with all the “County” cells and renamed the original column back to “County” from “County.1”.
-4. I deleted the “Rank within US” column of the Washington_Median_Income_by_County query since it isn’t useful for my analysis.
+4. Since it isn't useful for my analysis, I deleted the “Rank within US” column of the Washington_Median_Income_by_County query.
 5. I renamed the “Value (Dollars)” column to “Median Salary”.
 6. I wanted to group every other Party column value other than "Democratic Party Nominees" and "Republican Party Nominees" as "Other", with their Votes and PercentageOfTotalVotes values also summed/grouped. To achieve this, I used Add Column > Custom Column and added a Custom Column to classify parties into "Democrat", "Republican", and "Other" with the following formula: `if [Party] = "Democratic Party Nominees" then "Democrat"
 else if [Party] = "Republican Party Nominees" then "Republican"
@@ -77,4 +77,33 @@ else "Other"` . Then, I selected the County and Party Grouped columns and used H
 
 After this, I changed the Party Grouped column's type to text, Total Votes to Whole Number, and renamed Party Grouped to Party.
 
-7. To discern how much of the population is registered voters, I downloaded the Washington Secretary of State's Voter Demographics Tables from here
+7. To discern how much of the population is registered voters, I downloaded the Washington Secretary of State's Voter Demographics Tables from [here](https://www.sos.wa.gov/elections/data-research/reports-data-and-statistics/voter-demographics) and deleted the rest of the columns other than County and Total. Then I imported it to Power BI, renamed the Total column to Registered Voters, merged it with the Washington_Population_2024 table based on the County column, and expanded the Registered Voters column. To minimize the data model size, I disabled the Enable Load option on the County_and_Age_Group table since I don't need it after the merge.
+
+## DAX Measures
+
+### Washington_Election_Results_2024
+
+`DemocratVotes = CALCULATE(SUM(Washington_Election_Results_2024[Total Votes]), Washington_Election_Results_2024[Party] = "Democrat")`
+
+`RepublicanVotes = CALCULATE(SUM(Washington_Election_Results_2024[Total Votes]), Washington_Election_Results_2024[Party] = "Republican")`
+
+`OtherVotes = CALCULATE(SUM(Washington_Election_Results_2024[Total Votes]), Washington_Election_Results_2024[Party] = "Other")`
+
+`DemocratVotePercentage = DIVIDE([DemocratVotes], [TotalVotesInCounty])`
+
+`RepublicanVotePercentage = DIVIDE([RepublicanVotes], [TotalVotesInCounty])`
+
+`OtherVotePercentage = DIVIDE([OtherVotes], [TotalVotesInCounty])`
+
+`NonVoters = VAR TotalVoters = Washington_Election_Results_2024[DemocratVotes] + Washington_Election_Results_2024[RepublicanVotes] + Washington_Election_Results_2024[OtherVotes]
+VAR Result = SUM(Washington_Population_2024[Registered Voters]) - TotalVoters
+RETURN Result`
+
+`TotalVotesInCounty = SUM(Washington_Election_Results_2024[Total Votes])`
+
+`VoterTurnout = DIVIDE([TotalVotesInCounty], SUM(Washington_Population_2024[Registered Voters]))`
+
+`WinningParty = IF([DemocratVotes] > [RepublicanVotes], "Democrat", IF([RepublicanVotes] > [DemocratVotes], "Republican", "Other"))`
+
+### Washington_Electric_Vehicle_Population_Data
+
