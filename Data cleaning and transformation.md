@@ -83,27 +83,136 @@ After this, I changed the Party Grouped column's type to text, Total Votes to Wh
 
 ### Washington_Election_Results_2024
 
-`DemocratVotes = CALCULATE(SUM(Washington_Election_Results_2024[Total Votes]), Washington_Election_Results_2024[Party] = "Democrat")`
+<details><summary>Calculate the total Democrat votes</summary>
+  
+  ```
+  DemocratVotes = CALCULATE(SUM(Washington_Election_Results_2024[Total Votes]), Washington_Election_Results_2024[Party] = "Democrat")
+  ```
 
-`RepublicanVotes = CALCULATE(SUM(Washington_Election_Results_2024[Total Votes]), Washington_Election_Results_2024[Party] = "Republican")`
+</details>
 
-`OtherVotes = CALCULATE(SUM(Washington_Election_Results_2024[Total Votes]), Washington_Election_Results_2024[Party] = "Other")`
+<details><summary>Calculate the total Republican votes</summary>
+  
+  ```
+  RepublicanVotes = CALCULATE(SUM(Washington_Election_Results_2024[Total Votes]), Washington_Election_Results_2024[Party] = "Republican")
+  ```
 
-`DemocratVotePercentage = DIVIDE([DemocratVotes], [TotalVotesInCounty])`
+</details>
 
-`RepublicanVotePercentage = DIVIDE([RepublicanVotes], [TotalVotesInCounty])`
+<details><summary>Calculate the total votes of other parties</summary>
+  
+  ```
+  OtherVotes = CALCULATE(SUM(Washington_Election_Results_2024[Total Votes]), Washington_Election_Results_2024[Party] = "Other")
+  ```
 
-`OtherVotePercentage = DIVIDE([OtherVotes], [TotalVotesInCounty])`
+</details>
 
-`NonVoters = VAR TotalVoters = Washington_Election_Results_2024[DemocratVotes] + Washington_Election_Results_2024[RepublicanVotes] + Washington_Election_Results_2024[OtherVotes]
+<details><summary>Calculate the Democract vote percentage</summary>
+  
+  ```
+  DemocratVotePercentage = DIVIDE([DemocratVotes], [TotalVotesInCounty])
+  ```
+
+</details>
+
+<details><summary>Calculate the Republican vote percentage</summary>
+  
+  ```
+  RepublicanVotePercentage = DIVIDE([RepublicanVotes], [TotalVotesInCounty])
+  ```
+
+</details>
+
+<details><summary>Calculate the other parties' vote percentage</summary>
+  
+  ```
+  OtherVotePercentage = DIVIDE([OtherVotes], [TotalVotesInCounty])
+  ```
+
+</details>
+
+<details><summary>Calculate the number of people that didn't vote</summary>
+  
+  ```
+  NonVoters = VAR TotalVoters = Washington_Election_Results_2024[DemocratVotes] + Washington_Election_Results_2024[RepublicanVotes] + Washington_Election_Results_2024[OtherVotes]
 VAR Result = SUM(Washington_Population_2024[Registered Voters]) - TotalVoters
-RETURN Result`
+RETURN Result
+  ```
 
-`TotalVotesInCounty = SUM(Washington_Election_Results_2024[Total Votes])`
+</details>
 
-`VoterTurnout = DIVIDE([TotalVotesInCounty], SUM(Washington_Population_2024[Registered Voters]))`
+<details><summary>Calculate the total votes</summary>
+  
+  ```
+  TotalVotesInCounty = SUM(Washington_Election_Results_2024[Total Votes])
+  ```
 
-`WinningParty = IF([DemocratVotes] > [RepublicanVotes], "Democrat", IF([RepublicanVotes] > [DemocratVotes], "Republican", "Other"))`
+</details>
+
+<details><summary>Calculate voter turnout</summary>
+  
+  ```
+  VoterTurnout = DIVIDE([TotalVotesInCounty], SUM(Washington_Population_2024[Registered Voters]))
+  ```
+
+</details>
+
+<details><summary>Determine the winning party</summary>
+  
+  ```
+  WinningParty = IF([DemocratVotes] > [RepublicanVotes], "Democrat", IF([RepublicanVotes] > [DemocratVotes], "Republican", "Other"))
+  ```
+
+</details>
+
 
 ### Washington_Electric_Vehicle_Population_Data
+
+<details><summary>Calculate the total number of electric vehicles</summary>
+  
+  ```
+  TotalEVs = COUNTROWS(Washington_Electric_Vehicle_Population_Data)
+  ```
+
+</details>
+
+<details><summary>Calculate the total number of battery electric vehicles</summary>
+  
+  ```
+  TotalBEVs = CALCULATE(COUNTROWS(Washington_Electric_Vehicle_Population_Data), Washington_Electric_Vehicle_Population_Data[Electric Vehicle Type] = "Battery Electric Vehicle (BEV)")
+  ```
+
+</details>
+
+<details><summary>Calculate the total number of plug-in hybrid electric vehicles</summary>
+  
+  ```
+  TotalPHEVs = CALCULATE(COUNTROWS(Washington_Electric_Vehicle_Population_Data), Washington_Electric_Vehicle_Population_Data[Electric Vehicle Type] = "Plug-in Hybrid Electric Vehicle (PHEV)")
+  ```
+
+</details>
+
+<details><summary>Calculate the number of electric vehicles per 1000 people</summary>
+  
+  ```
+  EVsPer1000 = DIVIDE([TotalEVs], SUM(Washington_Population_2024[2024 Population Estimate])) * 1000
+  ```
+
+</details>
+
+
+### Washington_Population_2024
+
+<details><summary>Determine the currently selected county</summary>
+  
+  ```
+  Selected County = SELECTEDVALUE(Washington_Population_2024[County])
+  ```
+
+</details>
+
+
+## Step 3: Data Modeling
+
+![entity relationship diagram](https://github.com/user-attachments/assets/7845b1d1-93bc-442d-8174-9025feb0659d)
 
