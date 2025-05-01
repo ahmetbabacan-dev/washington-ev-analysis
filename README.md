@@ -22,7 +22,7 @@ The steps taken in Microsoft Excel used to inspect and clean the data for this a
 
 The steps taken in Microsoft Power BI used to transform and visualize the data for this analysis can be found here [link].
 
-An interactive Power BI dashboard used to report and explore sales trends can be found here [link].
+An interactive Power BI dashboard used to report and explore sales trends can be found [here](https://app.powerbi.com/view?r=eyJrIjoiNWUwZWU3NTMtOTVhZi00YjE1LWFjYzYtYzhkYmYyMTk4NGRmIiwidCI6ImI1YzAwZTc2LWY0ODQtNDY0NC1iZTFhLThlNzEyMDFlYTY5MyIsImMiOjl9&pageName=21e5a921af5500eecf39).
 
 ## Data Structure & Initial Checks
 
