@@ -18,9 +18,7 @@ Insights and recommendations are provided on the following key areas:
 *   **Correlation between EV Adoption and Income:** Analysis of the correlation between EV adoption rates and median household income.
 *   **Correlation between Voter Turnout and other factors:** Analysis of the correlation between voter turnout rate, EV adoption rate, and median household income.
 
-The steps taken in Microsoft Excel used to inspect and clean the data for this analysis can be found here [link].
-
-The steps taken in Microsoft Power BI used to transform and visualize the data for this analysis can be found here [link].
+The steps taken in Microsoft Excel and Power BI used to inspect, clean, and transform the data for this analysis can be found [here](https://github.com/ahmetbabacan-dev/washington-ev-analysis/blob/main/Data%20cleaning%20and%20transformation.md).
 
 An interactive Power BI dashboard used to report and explore sales trends can be found [here](https://app.powerbi.com/view?r=eyJrIjoiNWUwZWU3NTMtOTVhZi00YjE1LWFjYzYtYzhkYmYyMTk4NGRmIiwidCI6ImI1YzAwZTc2LWY0ODQtNDY0NC1iZTFhLThlNzEyMDFlYTY5MyIsImMiOjl9&pageName=21e5a921af5500eecf39).
 
